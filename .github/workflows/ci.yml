@@ -1,0 +1,37 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Lint & Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+        cache: "pip"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Install CPU versions of torch and torchvision for fast CI runs
+        pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+        pip install opencv-python-headless pillow numpy scikit-learn matplotlib lxml pyyaml pytest
+
+    - name: Code Syntax & Integrity Check
+      run: |
+        python -m compileall -q .
+
+    - name: Run Pytest Test Suite
+      run: |
+        pytest tests/test_system.py -v

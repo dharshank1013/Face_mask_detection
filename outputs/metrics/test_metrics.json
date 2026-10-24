@@ -1,0 +1,55 @@
+{
+  "test_loss": 0.018791986461609633,
+  "test_accuracy": 0.9962908011869436,
+  "total_samples": 1348,
+  "confusion_matrix": [
+    [
+      449,
+      0,
+      0
+    ],
+    [
+      1,
+      447,
+      1
+    ],
+    [
+      1,
+      2,
+      447
+    ]
+  ],
+  "classification_report": {
+    "Incorrect Mask": {
+      "precision": 0.9955654101995566,
+      "recall": 1.0,
+      "f1-score": 0.9977777777777778,
+      "support": 449.0
+    },
+    "With Mask": {
+      "precision": 0.9955456570155902,
+      "recall": 0.9955456570155902,
+      "f1-score": 0.9955456570155902,
+      "support": 449.0
+    },
+    "Without Mask": {
+      "precision": 0.9977678571428571,
+      "recall": 0.9933333333333333,
+      "f1-score": 0.9955456570155902,
+      "support": 450.0
+    },
+    "accuracy": 0.9962908011869436,
+    "macro avg": {
+      "precision": 0.9962929747860013,
+      "recall": 0.9962929967829744,
+      "f1-score": 0.9962896972696527,
+      "support": 1348.0
+    },
+    "weighted avg": {
+      "precision": 0.9962940689123788,
+      "recall": 0.9962908011869436,
+      "f1-score": 0.9962891453110072,
+      "support": 1348.0
+    }
+  }
+}

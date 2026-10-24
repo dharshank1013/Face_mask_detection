@@ -1,0 +1,93 @@
+# ==============================================================================
+# Git Ignore Configuration - Face Mask Detection System
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Raw Datasets (8,982+ images & Pascal VOC XML annotations)
+# Keep raw image files out of git history to prevent repository bloat
+dataset 1/
+dataset 2/
+dataset*/
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Intermediate training checkpoints
+# (Preserve best checkpoint 'checkpoints/mobilenet_v2_mask_best.pt' for out-of-the-box inference)
+checkpoints/*latest.pt
+checkpoints/*.pth
+
+# Runtime logs & exports (keep folder structure via .gitkeep)
+outputs/logs/*.csv
+outputs/logs/*.log
+outputs/exports/*
+!outputs/logs/.gitkeep
+!outputs/exports/.gitkeep
+
+# Temporary / Scratch files
+scratch/
+*.tmp
+*.log

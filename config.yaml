@@ -1,0 +1,52 @@
+# Face Mask Detection System - Configuration
+hardware:
+  preferred_device: "auto"  # auto priority: xpu -> cuda -> cpu
+  allow_cpu_fallback: true
+
+dataset:
+  dataset1_dir: "dataset 1"
+  dataset2_dir: "dataset 2"
+  classes:
+    - "mask_weared_incorrect"
+    - "with_mask"
+    - "without_mask"
+  display_names:
+    mask_weared_incorrect: "Incorrect Mask"
+    with_mask: "With Mask"
+    without_mask: "Without Mask"
+  colors:
+    mask_weared_incorrect: [0, 165, 255]  # BGR orange
+    with_mask: [0, 255, 0]                # BGR green
+    without_mask: [0, 0, 255]             # BGR red
+  input_size: 224
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+
+training:
+  epochs: 15
+  batch_size: 32
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  early_stopping_patience: 4
+  scheduler_type: "cosine"  # "cosine" or "plateau"
+  num_workers: 0            # Windows-safe multi-threading setting
+  model_save_name: "mobilenet_v2_mask.pt"
+
+inference:
+  confidence_threshold: 0.60
+  smoothing_window_size: 5
+  face_detector: "haar"      # "haar" (bundled offline)
+  min_face_size: [30, 30]
+  camera_index: 0
+  detection_log_file: "outputs/logs/detection_events.csv"
+
+paths:
+  checkpoints_dir: "checkpoints"
+  outputs_dir: "outputs"
+  metrics_dir: "outputs/metrics"
+  plots_dir: "outputs/plots"
+  logs_dir: "outputs/logs"
+  exports_dir: "outputs/exports"
+  splits_dir: "data/splits"
